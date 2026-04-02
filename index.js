@@ -1,10 +1,19 @@
-const http = require('http');
+const express = require('express');
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Salom, Node.js! Server ishlamoqda 🎉');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Salom, Express! Server ishlamoqda 🚀');
 });
 
-server.listen(3000, () => {
-  console.log('Server 3000-portda ishlamoqda → http://localhost:3000');
+app.get('/hello', (req, res) => {
+  res.send('Hello World from Express!');
+});
+
+app.get('/about', (req, res) => {
+  res.send('Bu haqida sahifa. Backend o‘rganayapmiz!');
+});
+
+app.listen(3000, () => {
+  console.log('Express server 3000-portda ishlamoqda → http://localhost:3000');
 });
